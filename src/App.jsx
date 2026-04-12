@@ -1,67 +1,65 @@
-// import './App.css';
+import './App.css';
+import {Routes,Route} from 'react-router-dom';
+import About from './component/About';
 
-//  import Navbar from './component/Navbar'
-// import Textutils from './component/Textutils'
-// import React,{useState} from "react";
-// import Alert from './component/Alert'
-// // import Rup from './component/Rup'
-// const name = "<h1>harry</h1>"
+ import Navbar from './component/Navbar'
+import Textutils from './component/Textutils'
+import React,{useState} from "react";
+import Home from './component/Home'
+import Alert from './component/Alert'
 
-// function App() {
-//   const [mode, setmode] = useState('dark');
-//   const [alert, setAlert]  = useState(null);
+// import Rup from './component/Rup'
+const name = "<h1>harry</h1>"
 
-
-//   const showAlert = (message, type)=>{
-//     setAlert({
-//        msg  : message,
-//        type : type
-//     });
-//   }
-
-//   const toggleMode = ()=>{
-//     if(mode==='light'){
-//       setmode('dark')
-//       showAlert("dark mode is alert", "success");
-//       document.title = "TextUtils dark mode";
-//       setInterval(() => {
-//        document.title= "the text is amazing";
-//       },2000);
-//       setInterval(() => {
-//         document.title= "the text is amazing mode"
-//       },1500);
+function App() {
+  const [mode, setmode] = useState('dark');
+  const [alert, setAlert]  = useState(null);
 
 
-//     }
-//     else{
-//       setmode('light')
-//       showAlert("light is enabled", "success");
-//        document.title = "TextUtils light mode";
+  const showAlert = (message, type)=>{
+    setAlert({
+       msg  : message,
+       type : type
+    });
+  }
 
-//     }
-//   }
-//   return (
-//     <>
-    
-//       { <Navbar title="teext" link="link us" mode={mode} toggleMode={toggleMode} name="hashimkhan" age={23} city="addreessed"/>}
-//       <Textutils/>
-//       <Alert alert= {alert} />
-//       {/* <Rup/> */}
-//    </>
-//   )
-// }
+  const toggleMode = ()=>{
+    if(mode==='light'){
+      setmode('dark')
+      showAlert("dark mode is alert", "success");
+      document.title = "TextUtils dark mode";
+      setInterval(() => {
+       document.title= "the text is amazing";
+      },2000);
+      setInterval(() => {
+        document.title= "the text is amazing mode"
+      },1500);
 
-// export default App
-import { Link } from "react-router-dom";
 
-function Navbar(props) {
+    }
+    else{
+      setmode('light')
+      showAlert("light is enabled", "success");
+       document.title = "TextUtils light mode";
+
+    }
+  }
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      {/* <Link to="/textutils">Text Utils</Link> */}
-      <Link to="/about">About</Link>
-    </nav>
-  );
+    <>
+    
+      { <Navbar title="teext" link="link us" mode={mode} toggleMode={toggleMode} name="hashimkhan" age={23} city="addreessed"/>}
+      <Textutils/>
+      <Alert alert= {alert} />
+      {<About/>}
+      <Routes>
+        <Route path="/About" element={<About/>}></Route>
+        <Route path="/Home" element={<Home/>}></Route>
+        <Route path="/Alert" element={<Alert/>}></Route>
+        <Route path="/Navbar" element={<Navbar/>}></Route>
+        <Route path="/" element={<Textutils/>}></Route>
+      </Routes>
+   </>
+  )
 }
 
-export default Navbar;
+export default App
