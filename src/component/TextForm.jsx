@@ -21,12 +21,13 @@ export default function Textutils() {
     <>
     <div>
       <textarea className="textarea"  value ={text} onChange={handleOnChange}>this is textarea</textarea>
-      <button onClick={handleOnClick}>upper case</button>  
-      <button onClick={handleOnClear}> clear</button>
-      <button onClick={HandleOnClick}>lower case</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleOnClick}>upper case</button>  
+      <button className="btn btn-primary mx-1 my-1" onClick={handleOnClear}> clear</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleOnClear}> clear</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={HandleOnClick}>lower case</button>
     </div>
     <div>
-      <p>{text.split(" ").length} and{text.length}</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} and{text.length}</p>
     </div>
     </>
   )

@@ -3,7 +3,7 @@ import {Routes,Route} from 'react-router-dom';
 import About from './component/About';
 
  import Navbar from './component/Navbar'
-import Textutils from './component/Textutils'
+import TextForm from './component/TextForm'
 import React,{useState} from "react";
 import Home from './component/Home'
 import Alert from './component/Alert'
@@ -27,7 +27,7 @@ function App() {
     if(mode==='light'){
       setmode('dark')
       showAlert("dark mode is alert", "success");
-      document.title = "TextUtils dark mode";
+      document.title = "TextForm dark mode";
       setInterval(() => {
        document.title= "the text is amazing";
       },2000);
@@ -47,17 +47,18 @@ function App() {
   return (
     <>
     
-      { <Navbar title="teext" link="link us" mode={mode} toggleMode={toggleMode} name="hashimkhan" age={23} city="addreessed"/>}
-      <Textutils/>
-      <Alert alert= {alert} />
-      {<About/>}
-      <Routes>
+      {<Navbar title="text" link="link us" mode={mode} toggleMode={toggleMode} name="hashimkhan" age={23} city="addreessed"/>}
+       {/* <TextForm/> */}
+      {/* <Alert alert= {alert} /> */}
+      {/* {<About/>} */}
+      {/* // {<Home/>} */}
+      {<Routes>
         <Route path="/About" element={<About/>}></Route>
         <Route path="/Home" element={<Home/>}></Route>
         <Route path="/Alert" element={<Alert/>}></Route>
         <Route path="/Navbar" element={<Navbar/>}></Route>
-        <Route path="/" element={<Textutils/>}></Route>
-      </Routes>
+        <Route path="/" element={<TextForm/>}></Route>
+      </Routes>}
    </>
   )
 }
